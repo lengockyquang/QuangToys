@@ -1,2 +1,2 @@
 # QuangToys
-Quang's toys, and it's my toys
+Quang's toys, and it's my toy
