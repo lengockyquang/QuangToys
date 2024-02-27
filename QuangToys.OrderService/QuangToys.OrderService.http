@@ -1,0 +1,6 @@
+@QuangToys.OrderService_HostAddress = http://localhost:5143
+
+GET {{QuangToys.OrderService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

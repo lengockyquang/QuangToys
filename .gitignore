@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/QuangToys/bin/Debug/net8.0
+/QuangToys/obj
+/.vs/QuangToys/FileContentIndex
+/QuangToys.CatalogService/bin/Debug/net8.0
+/QuangToys.Common/bin/Debug/net8.0
+/QuangToys.CatalogService/obj
+/QuangToys.Common/obj
+/QuangToys.OrderService/bin/Debug/net8.0
+/QuangToys.OrderService/obj
