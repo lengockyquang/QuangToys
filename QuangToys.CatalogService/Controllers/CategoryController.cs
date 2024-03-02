@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QuangToys.CatalogService.Interfaces;
 using QuangToys.CatalogService.Models;
 using QuangToys.Common.Interfaces;
 
@@ -8,8 +9,8 @@ namespace QuangToys.CatalogService.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly IRepository<Category> _categoryRepo;
-        public CategoryController(IRepository<Category> repository)
+        private readonly ICategoryRepository _categoryRepo;
+        public CategoryController(ICategoryRepository repository)
         {
             _categoryRepo = repository;
         }

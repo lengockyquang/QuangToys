@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QuangToys.CatalogService.Interfaces;
 using QuangToys.CatalogService.Models;
 using QuangToys.Common.Interfaces;
 
@@ -8,8 +9,8 @@ namespace QuangToys.CatalogService.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IRepository<Product> _productsRepo;
-        public ProductController(IRepository<Product> repository)
+        private readonly IProductRepository _productsRepo;
+        public ProductController(IProductRepository repository)
         {
             _productsRepo = repository;
         }

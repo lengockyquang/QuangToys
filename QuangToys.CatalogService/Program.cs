@@ -1,10 +1,6 @@
-
-using Azure.Identity;
-using QuangToys.CatalogService.Models;
+using QuangToys.CatalogService.Interfaces;
 using QuangToys.CatalogService.Services;
-using QuangToys.Common.Interfaces;
 using QuangToys.Common.Models;
-using System.Configuration;
 
 namespace QuangToys.CatalogService
 {
@@ -21,8 +17,8 @@ namespace QuangToys.CatalogService
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.Configure<CosmosSettings>(builder.Configuration.GetSection("CosmosDb"));
-            builder.Services.AddTransient<IRepository<Product>, ProductRepository>();
-            builder.Services.AddTransient<IRepository<Category>, CategoryRepository>();
+            builder.Services.AddTransient<IProductRepository, ProductRepository>();
+            builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 
 
             var app = builder.Build();
