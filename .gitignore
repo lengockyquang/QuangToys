@@ -11,3 +11,5 @@
 /QuangToys.Common/obj
 /QuangToys.OrderService/bin/Debug/net8.0
 /QuangToys.OrderService/obj
+/.vs
+/QuangToys.CatalogService.Test/obj

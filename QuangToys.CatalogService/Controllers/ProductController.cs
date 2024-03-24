@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuangToys.CatalogService.Interfaces;
 using QuangToys.CatalogService.Models;
-using QuangToys.Common.Interfaces;
 
 namespace QuangToys.CatalogService.Controllers
 {
