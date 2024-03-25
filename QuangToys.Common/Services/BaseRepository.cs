@@ -14,7 +14,10 @@ namespace QuangToys.Common.Services
         private readonly CosmosClient _cosmosClient;
         private readonly ILogger<BaseRepository<T>> _logger;
         private readonly string _containerName;
-        public BaseRepository(IOptions<CosmosSettings> cosmosSettings, ILogger<BaseRepository<T>> logger, string containerName)
+        public BaseRepository(
+            IOptions<CosmosSettings> cosmosSettings, 
+            ILogger<BaseRepository<T>> logger, 
+            string containerName)
         {
             _cosmosSettings = cosmosSettings;
             ManagedIdentityCredential miCredential;
@@ -36,6 +39,7 @@ namespace QuangToys.Common.Services
                     .GetDatabase(_cosmosSettings.Value.DatabaseName)
                     .CreateContainerIfNotExistsAsync(_containerName, "/id", 400).Wait();
         }
+
         public async Task<bool> Add(T entity)
         {
             try

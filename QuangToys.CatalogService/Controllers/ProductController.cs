@@ -9,15 +9,30 @@ namespace QuangToys.CatalogService.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository _productsRepo;
-        public ProductController(IProductRepository repository)
+        private readonly ICategoryRepository _categoriesRepo;
+        public ProductController(IProductRepository repository, ICategoryRepository categoriesRepo)
         {
             _productsRepo = repository;
+            _categoriesRepo = categoriesRepo;
+
         }
         [HttpPost("create")]
-        public async Task<IActionResult> HandleCreate(Product product)
+        public async Task<IActionResult> HandleCreate(ProductCreateDto product)
         {
-            var createResult = await _productsRepo.Add(product);
-            return Ok(createResult);
+            var category = await _categoriesRepo.Get(Guid.Parse(product.CategoryId));
+            if(category == null)
+            {
+                return Ok(false);
+            }
+            var newProduct = new Product()
+            {
+                Id = Guid.NewGuid(),
+                Name = product.Name
+            };
+            var createResult = await _productsRepo.Add(newProduct);
+            category.Products.Add(newProduct);
+            var updateCategoryResult = await _categoriesRepo.Update(category);
+            return Ok(createResult && updateCategoryResult);
         }
 
         [HttpPut("update")]
