@@ -12,6 +12,9 @@ variables:
   buildConfiguration: 'Release'
 
 jobs:
+- deployment: Deploy
+  environment:
+   name: "TestEnvironment"
 - job:
   displayName: 'Build and publish'
   pool:
