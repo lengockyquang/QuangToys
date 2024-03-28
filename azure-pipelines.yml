@@ -13,6 +13,7 @@ variables:
 
 jobs:
 - job:
+  displayName: 'Build and publish'
   pool:
    name: Default
    demands: Agent.Name -equals KEYSMASH
